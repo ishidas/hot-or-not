@@ -51,7 +51,7 @@ display1 = function (){
 
 display2 = function (){
      while(randNum1 === randNum2) {
-      randNum2 = calcRandom();
+      randNum1 = calcRandom();
   }
   frame2 = photoGallary[randNum2].photoPath;
   imgElement2 = document.createElement("img");
@@ -62,29 +62,31 @@ display2 = function (){
 
 
 var selectionLeft = function () {
-  console.log(path1);
   photoGallary[randNum1].numOfVotes++ ;
   console.log(photoGallary[randNum1].numOfVotes + 1);
   console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
   randNum1 = calcRandom();
-
+  while(randNum1 === randNum2) {
+    randNum1 = calcRandom();
+  }
   var path1 = photoGallary[randNum1].photoPath;
   imgElement1.src = path1;
+  console.log(path1);
 
 }
 
   // imgElement1.parentNode.removeChild(selection1);
 
-  var selectionRight = function () {
-//   this.src = frame2;
-//   imgElement1.src = frame1;
-//     while(this.src === imgElement1.src){
-//     imgElement2.src = frame2;
-//   }
-photoGallary[randNum2].numOfVotes++ ;
+var selectionRight = function () {
+  photoGallary[randNum2].numOfVotes++ ;
   console.log(photoGallary[randNum2].numOfVotes + 1);
   console.log(photoGallary[randNum2].photoName + " has " + photoGallary[randNum2].numOfVotes + " votes");
-
+  randNum2 = calcRandom();
+  while(randNum1 === randNum2) {
+    randNum2 = calcRandom();
+  }
+  var path2 = photoGallary[randNum2].photoPath;
+  imgElement2.src = path2;
 }
 
 display1();
