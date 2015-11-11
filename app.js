@@ -35,12 +35,18 @@ calcRandom = function (){
 
 var imgElement1;
 var imgElement2;
+var frame1;
+var frame2;
+var randNum1 = calcRandom();
+var randNum2 = calcRandom();
+
 display = function (){
-  var frame1 = photoGallary[calcRandom()].photoPath;//make a lil mod when event listner
-  var frame2 = photoGallary[calcRandom()].photoPath;
-  while(frame1 === frame2){
-    frame2 = photoGallary[calcRandom()].photoPath;
-  }
+  frame1 = photoGallary[randNum1].photoPath;//make a lil mod when event listner
+  console.log(frame1);
+  frame2 = photoGallary[randNum2].photoPath;
+  // while(frame1 === frame2){
+  //   frame2 = photoGallary[calcRandom()].photoPath;
+  // }
   imgElement1 = document.createElement("img");
   imgElement2 = document.createElement("img");
   imgElement1.src = frame1;
@@ -49,61 +55,34 @@ display = function (){
   imgElement2.id = "img2"
   document.getElementById("left-img").appendChild(imgElement1);
   document.getElementById("right-img").appendChild(imgElement2);
+  }
+
+
+  var selection1 = function () {
+  this.src = frame1;
+  imgElement2.src = frame2;
+  photoGallary[randNum1].numOfVotes++ ;
+  console.log(photoGallary[randNum1].numOfVotes + 1);
+  console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
+    while(this.src === imgElement2.src){
+    imgElement2.src = frame2;
+    }
+  // imgElement1.parentNode.removeChild(selection1);
+  display();
 }
+
+//   var selection2 = function () {
+//   this.src = frame2;
+//   imgElement1.src = frame1;
+//     while(this.src === imgElement1.src){
+//     imgElement2.src = frame2;
+//   }
+// }
 
 display();
 
 
+imgElement1.addEventListener('click',selection1);
+// imgElement2.addEventListener('click',selection2);
 
 
-imgElement1.addEventListener('click',function () {
-  this.src = photoGallary[calcRandom()].photoPath;
-  imgElement2.src = photoGallary[calcRandom()].photoPath;
-    while(this.src === imgElement2.src){
-    imgElement2.src = photoGallary[calcRandom()].photoPath;
-  }
-})
-
-imgElement2.addEventListener('click',function () {
-  this.src = photoGallary[calcRandom()].photoPath;
-  imgElement1.src = photoGallary[calcRandom()].photoPath;
-    while(this.src === imgElement1.src){
-    imgElement2.src = photoGallary[calcRandom()].photoPath;
-  }
-})
-// display.imgElement2.addEventListener('click',display(),false);
-
-// var imgElement1 = document.createElement("img")
-    // document.getElementById("left-img").appendChild(imgElement1);
-    // imgElement1.setAttribute("width", "200px");
-    // imgElement1.setAttribute("height", "200px");
-
-
-
-
-//missing step-and src with array inside to attach to <div> i have using setAttribute()
-// var imgElement2 = document.createElement("img");
-//     document.getElementById("right-img").appendChild(imgElement2);
-    // imgElement2.setAttribute("src", );
-    // imgElement2.setAttribute("width", "200px");
-    // imgElement2.setAttribute("height", "200px");
-    // imgElement2.src = photoGallary.photoPath;
-
-
-
-//eventlistener with a click
-
-
-//11.9- Assignement Adding 2 images onto a browser
-//Left Photo Display//
-  // var imgFrame = document.createElement("img")
-  //     imgFrame.src = "img/artpic2.jpg";
-// document.getElementById("left-img").appendChild(imgFrame);
-
-//Right Photo Disply//
-  // var imgFrame2 = document.createElement("img");
-  //     imgFrame2.src = "img/artpic3.jpg";
-// document.getElementById("right-img").appendChild(imgFrame2);
-
-//Photo Selections
-// PhotoObject(Photo)
