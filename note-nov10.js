@@ -11,3 +11,15 @@ var data =[
   highlight: "#998282"
 }
 ]
+
+Charts:
+var data = {
+  lebels []
+
+}
+
+constructor
+this.name = name;
+
+add inside constructor
+data.labes.push(name);
