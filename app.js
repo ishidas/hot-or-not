@@ -8,6 +8,7 @@ function PhotoObject(photoName, photoPath) {
 
 }
 
+
 //New Photo Objects//
 var img1 = new PhotoObject("lion","img/artpic1.jpg");
 var img2 = new PhotoObject("hearts","img/artpic2.jpg");
@@ -91,10 +92,122 @@ var selectionRight = function () {
 
 display1();
 display2();
-// .parentNode.removeChild(display1());
 
 imgElement1.addEventListener('click',selectionLeft);
-
 imgElement2.addEventListener('click',selectionRight);
+
+// Bar Chart using Chart.js//
+var ctx = document.getElementById("myChart").getContext("2d");
+// new Chart(ctx).Bar(data);
+
+// function createChart() {
+
+var data = {
+  "labels":["lion","hearts","flowers","elephant","space", "hawks", "cuteElephant","snoopy","pikachu","simpsons","cat","clock"],
+  "datasets":[
+      {
+        label: "Votes Tracker 0",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[0].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 1",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[1].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 2",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[2].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 3",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[3].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 4",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[4].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 5",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[5].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 6",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[6].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 7",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[7].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 8",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[8].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 9",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[9].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 10",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[photoGallary[10].numOfVotes]
+      },
+      {
+        label: "Votes Tracker 11",
+        fillColor: "rgba(151,187,205,0.5)",
+        strokeColor: "rgba(151,187,205,0.8)",
+        highlightFill: "rgba(151,187,205,0.75)",
+        highlightStroke: "rgba(151,187,205,1)",
+        data:[photoGallary[11].numOfVotes]
+      },
+
+    ]
+   }
+var myBarChart = new Chart(ctx).Bar(data);
+
+// createChart();
+
+
 
 
