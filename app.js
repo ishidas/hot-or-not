@@ -8,6 +8,7 @@ function PhotoObject(photoName, photoPath) {
 
 }
 
+
 //New Photo Objects//
 var img1 = new PhotoObject("lion","img/artpic1.jpg");
 var img2 = new PhotoObject("hearts","img/artpic2.jpg");
@@ -62,9 +63,11 @@ display2 = function (){
 
 
 var selectionLeft = function () {
-  photoGallary[randNum1].numOfVotes++ ;
-  console.log(photoGallary[randNum1].numOfVotes + 1);
-  console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
+  photoGallary[randNum1].numOfVotes += 1 ;
+  myBarChart.datasets[0].bars[randNum1].value = photoGallary[randNum1].numOfVotes
+  myBarChart.update();
+  console.log(photoGallary[randNum1]);
+  // console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
   randNum1 = calcRandom();
   while(randNum1 === randNum2) {
     randNum1 = calcRandom();
@@ -73,14 +76,19 @@ var selectionLeft = function () {
   imgElement1.src = path1;
   console.log(path1);
 
+
+
 }
 
   // imgElement1.parentNode.removeChild(selection1);
 
 var selectionRight = function () {
-  photoGallary[randNum2].numOfVotes++ ;
-  console.log(photoGallary[randNum2].numOfVotes + 1);
-  console.log(photoGallary[randNum2].photoName + " has " + photoGallary[randNum2].numOfVotes + " votes");
+  photoGallary[randNum2].numOfVotes += 1 ;
+  myBarChart.datasets[0].bars[randNum2].value = photoGallary[randNum2].numOfVotes
+  myBarChart.update();
+
+  console.log(photoGallary[randNum2]);
+  // console.log(photoGallary[randNum2].photoName + " has " + photoGallary[randNum2].numOfVotes + " votes");
   randNum2 = calcRandom();
   while(randNum1 === randNum2) {
     randNum2 = calcRandom();
@@ -91,10 +99,37 @@ var selectionRight = function () {
 
 display1();
 display2();
-// .parentNode.removeChild(display1());
+
+
+
+// Bar Chart using Chart.js//
+var ctx = document.getElementById("myChart").getContext("2d");
+// new Chart(ctx).Bar(data);
+
+// function createChart() {
+
+var data = {
+  labels:["lion","hearts","flowers","elephant","space", "hawks", "cuteElephant","snoopy","pikachu","simpsons","cat","clock"],
+  datasets:[
+      {
+        label: "Votes Tracker",
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,0.8)",
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+        data:[0,0,0,0,0,0,0,0,0,0,0]
+      },
+    ]
+   }
+var myBarChart = new Chart(ctx).Bar(data);
+
+// myBarChart = datasets[1].bars[1].value = photoGallary[].numOfVotes;
+
 
 imgElement1.addEventListener('click',selectionLeft);
-
 imgElement2.addEventListener('click',selectionRight);
+
+
+
 
 
