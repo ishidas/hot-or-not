@@ -1,0 +1,26 @@
+body > div > header > h3{
+  /*display: inline;*/
+
+}
+
+.container #empty {
+  display: inline;
+  width: 100px;
+}
+
+.container #empty2 {
+  display: inline;
+  width: 700px;
+}
+
+
+/**background**/
+body {
+  background-color: #DAA187;
+
+}
+
+header {
+/*  background-image: url(img/coffeemug.jpg);*/
+  background-repeat: repeat-x;
+}
