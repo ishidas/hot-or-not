@@ -1,3 +1,52 @@
+//Local Storage
+//open up console in a browser --> resources -->Local Stores
+//Local Stoage & Session Storages -local lightweight DBs (loose term)
+var Turtle = function(leg, color, water, ninja){
+  this.legs = legs;
+  .
+  .
+}
+
+Turtle.prototype.kickAss function() {
+  this.shell = 'green';
+  console.log('Cowabunga!');
+}
+var turtle1 = {
+  legs: 7;
+  color: 'Blue',
+  water: 'Salt Water',
+  ninja: true,
+
+  kickAss: function() {
+    console.log('Cowabunga!');
+  }
+};
+
+var JSONturtle = JSON.stringify(turtle); //converts javascript objct into string
+                                            //but not the method part (kickAss).
+var newTurtle = JSON.parse(JSONturtle); //this will convert back into javascript
+//you could also,
+localStorage.setItem('key', JSON.stringify(key));
+
+localStorage.______(key, value) clear, getItem, removeItem, setItem
+localStorage.setItem('turtle', JSONturtle);//stores data in local storage
+
+localStorage.turtle //--> will give you turtle object
+
+localStorage.getItem('tutle');
+
+//JSON object is in a string.
+"var turtle = {
+  legs: 7;
+  color: 'Blue',
+  water: 'Salt Water',
+  ninja: true,
+
+  kickAss: function() {
+    console.log('Cowabunga!');
+  }
+};"
+
 //Nov 12
 stateVoting{
   two new random numbers ()

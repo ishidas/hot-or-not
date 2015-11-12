@@ -111,6 +111,10 @@ var ctx = document.getElementById("myChart").getContext("2d");
 
 // function createChart() {
 
+// if (localStorage.chartData && localStorage.images){
+//   data = JSON.parse(localStorage.chartData);//either
+//   images = JSON.parse(localStorage.getItem('images'))//or works
+// } else {}
 var data = {
   labels:["lion","hearts","flowers","elephant","space", "hawks", "cuteElephant","snoopy","pikachu","simpsons","cat","clock"],
   datasets:[
@@ -124,6 +128,7 @@ var data = {
       },
     ]
    }
+
 var myBarChart = new Chart(ctx).Bar(data);
 
 // myBarChart = datasets[1].bars[1].value = photoGallary[].numOfVotes;
