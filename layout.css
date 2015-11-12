@@ -1,0 +1,44 @@
+body > div > header,div,main {
+  margin: 0px;
+}
+
+body > div {
+  display: flex;
+  flex-flow: row wrap;
+}
+.container #empty {
+  order: 1;
+  flex-grow: 2;
+}
+
+
+body > div > header {
+  order: 2;
+  width: 1600px;
+  height: 250px;
+}
+
+.container #empty2 {
+  order: 3;
+  flex-grow: 2;
+}
+
+body > div > div {
+  order: 4;
+  flex-grow: 3;
+  margin: ;
+  justify-content: space-between;
+}
+
+body > div > main {
+  order: 5;
+flex-grow: 3;
+}
+
+body > div > canvas {
+  order: 6;
+  flow-grow: 3;
+
+}
+
+

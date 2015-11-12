@@ -42,6 +42,9 @@ var randNum1 = calcRandom();
 var randNum2 = calcRandom();
 
 display1 = function (){
+  while(randNum1 === randNum2) {
+    randNum1 = calcRandom();
+  }
   frame1 = photoGallary[randNum1].photoPath;//make a lil mod when event listner
   console.log(frame1);
   imgElement1 = document.createElement("img");
@@ -51,8 +54,8 @@ display1 = function (){
 }
 
 display2 = function (){
-     while(randNum1 === randNum2) {
-      randNum1 = calcRandom();
+  while(randNum1 === randNum2) {
+    randNum1 = calcRandom();
   }
   frame2 = photoGallary[randNum2].photoPath;
   imgElement2 = document.createElement("img");
@@ -117,7 +120,7 @@ var data = {
         strokeColor: "rgba(220,220,220,0.8)",
         highlightFill: "rgba(220,220,220,0.75)",
         highlightStroke: "rgba(220,220,220,1)",
-        data:[0,0,0,0,0,0,0,0,0,0,0]
+        data:[0,0,0,0,0,0,0,0,0,0,0,0]
       },
     ]
    }
