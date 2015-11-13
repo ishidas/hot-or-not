@@ -1,21 +1,41 @@
 header {
-  width: 100%;
-  height: 200px;
-  padding-top: 80px;
+  width: auto;
+
 }
 
 h3 {
-width: 100%;
-text-align: center;
+  font-size: 35px;
+  font-family: 'Niconne', cursive;
+  background-color: rgba(255, 255, 255, 0.49);
+  width: auto;
+  height: 90px;
+  padding-top: 50px;
+  text-align: center;
 }
-/**background**/
 body {
-  background-color: #DAA187;
+  background-image: url(img/beans.jpeg);
+  align-content: center;
+}
+
+#img1 {
+  width: 230px;
+  height: 230px;
 
 }
 
-body > div > canvas {
-  height: 400px;
+#img2 {
+  width: 230px;
+  height: 230px;
+
 }
 
+figure {
+  background-color: rgba(255, 255, 255, 0.49);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+canvas {
+  background-color: rgba(160, 232, 168, 0.3);
+}
 
