@@ -1,11 +1,13 @@
 //Creating Photo Object Constructor//
 var photoGallary = [];
+// var storePhotoGallary = JSON.stringify(photoGallary);
+// localStorage.setItem('photoGallary',storePhotoGallary);
 
 function PhotoObject(photoName, photoPath) {
   this.photoName = photoName;
   this.photoPath = photoPath;
   this.numOfVotes = 0;
-
+  photoGallary.push(this)
 }
 
 
@@ -25,7 +27,7 @@ var img12 = new PhotoObject("clock","img/artpic12.jpg");
 // console.log(img1);
 
 //Pushing img new objects into array called photoGallary//
-photoGallary.push(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12);
+// photoGallary.push(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12);
 // console.log(photoGallary);
 
 //Calculatng random//
@@ -64,11 +66,19 @@ display2 = function (){
   document.getElementById("right-img").appendChild(imgElement2);
 }
 
+// var jsonVotes = JSON.stringify(photoGallary);
+// var toLocal = localStorage.setItem('photoGallary',jsonVotes);
 
 var selectionLeft = function () {
   photoGallary[randNum1].numOfVotes += 1 ;
-  myBarChart.datasets[0].bars[randNum1].value = photoGallary[randNum1].numOfVotes
+
+  var jsonVotes1 = JSON.stringify(photoGallary);//stringify
+  localStorage.setItem('photoGallary',jsonVotes1);//setItem into localstorage
+  var getData1 = JSON.parse(localStorage.getItem('photoGallary')); //getting item
+  console.log(getData1);
+  myBarChart.datasets[0].bars[randNum1].value = photoGallary[randNum1].numOfVotes; //photoGallary[randNum1].numOfVotes, but used var parsedData1
   myBarChart.update();
+
   console.log(photoGallary[randNum1]);
   // console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
   randNum1 = calcRandom();
@@ -79,15 +89,18 @@ var selectionLeft = function () {
   imgElement1.src = path1;
   console.log(path1);
 
-
-
 }
 
   // imgElement1.parentNode.removeChild(selection1);
 
 var selectionRight = function () {
   photoGallary[randNum2].numOfVotes += 1 ;
-  myBarChart.datasets[0].bars[randNum2].value = photoGallary[randNum2].numOfVotes
+  var jsonVotes2 = JSON.stringify(photoGallary);//stringify
+  localStorage.setItem('photoGallary',jsonVotes2);//setItem
+  var getData2 =JSON.parse(localStorage.getItem('photoGallary')); //getItem
+
+//use parsed var to draw a chart
+  myBarChart.datasets[0].bars[randNum2].value = photoGallary[randNum2].numOfVotes; //originally photoGallary[randNum2].numOfVotes, but changed to parsedData2
   myBarChart.update();
 
   console.log(photoGallary[randNum2]);
@@ -131,7 +144,10 @@ var data = {
 
 var myBarChart = new Chart(ctx).Bar(data);
 
-// myBarChart = datasets[1].bars[1].value = photoGallary[].numOfVotes;
+//converting "data" chart into strings//
+// var storeChart = JSON.stringify(data);
+//setting item in local storage
+// localStorage.setItem('data',storeChart);
 
 
 imgElement1.addEventListener('click',selectionLeft);
