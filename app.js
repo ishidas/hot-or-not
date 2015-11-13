@@ -133,8 +133,8 @@ var data = {
   datasets:[
       {
         label: "Votes Tracker",
-        fillColor: "rgba(220,220,220,0.5)",
-        strokeColor: "rgba(220,220,220,0.8)",
+        fillColor: "rgba(117, 68, 11, 0.60)",
+        strokeColor: "rgba(117, 68, 11, 0.60)",
         highlightFill: "rgba(220,220,220,0.75)",
         highlightStroke: "rgba(220,220,220,1)",
         data:[0,0,0,0,0,0,0,0,0,0,0,0]

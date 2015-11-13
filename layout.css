@@ -1,23 +1,50 @@
-
-
-.container {
+body > div > div,figure {
   display: flex;
-  height: 1000px;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
-
-
-body > div > div {
-  order: 1;
-
+body > header {
+  flex: 1;
 }
 
-body > div > canvas {
-  order: 2;
-
+.photo {
+  flex: 2;
+  width: 230px;
+  height: 300px;
 }
 
-body > div > div,canvas {
-
+#left-img {
+  margin-bottom: 30px;
+  padding-top: 50px;
+  position: center;
+  background-color: rgba(255, 255, 255, 0.60);
+}
+#right-img {
+  margin-bottom: 30px;
+  padding-top: 50px;
+  position: center;
+  background-color: rgba(255, 255, 255, 0.60);
 }
 
+#img1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#myChart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*body > div > figure {
+  flex: 3;
+}
+*/
