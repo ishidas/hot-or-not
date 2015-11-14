@@ -39,6 +39,12 @@ body > header {
   margin-right: auto;
 }
 
+#button {
+  margin-left: 120px;
+  display: block;
+  position: center;
+}
+
 #myChart {
   display: block;
   margin-left: auto;
