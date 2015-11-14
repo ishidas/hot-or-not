@@ -10,6 +10,13 @@ function PhotoObject(photoName, photoPath) {
   photoGallary.push(this)
 }
 
+if (localStorage.photoGallary){
+  data = JSON.parse(localStorage.getItem('photoGallary'))//or works
+} else { data = photoGallary}
+// if (localStorage.chartData && localStorage.images){
+//   data = JSON.parse(localStorage.chartData);//either
+//   images = JSON.parse(localStorage.getItem('images'))//or works
+// } else {}
 
 //New Photo Objects//
 var img1 = new PhotoObject("lion","img/artpic1.jpg");
@@ -42,6 +49,21 @@ var frame1;
 var frame2;
 var randNum1 = calcRandom();
 var randNum2 = calcRandom();
+// trying to connect refresh button to event listener
+// var buttonId = document.getElementById('disableId');
+// var formId = document.getElementById('refresh');
+
+// function addRefresh(){
+//   if (imgElement1.addEventListener || imgElement2.addEventListener) {
+//     formId.paretremoveChild(buttonId);
+// }
+function whiteOut () {
+  var highLight = document.getElementById("img1");
+  highLight.style.borderStyle = "solid";
+  highLight.style.borderWidth = "5px";
+  highLight.style.borderColor = "rgba(255, 255, 255, 0.49)";
+}
+
 
 display1 = function (){
   while(randNum1 === randNum2) {
@@ -53,6 +75,7 @@ display1 = function (){
   imgElement1.src = frame1;
   imgElement1.id = "img1"
   document.getElementById("left-img").appendChild(imgElement1);
+
 }
 
 display2 = function (){
@@ -70,6 +93,11 @@ display2 = function (){
 // var toLocal = localStorage.setItem('photoGallary',jsonVotes);
 
 var selectionLeft = function () {
+  var highLight = document.getElementById("img1");
+  highLight.style.borderStyle = "solid";
+  highLight.style.borderWidth = "7px";
+  highLight.style.borderColor = "green";
+
   photoGallary[randNum1].numOfVotes += 1 ;
 
   var jsonVotes1 = JSON.stringify(photoGallary);//stringify
@@ -81,19 +109,26 @@ var selectionLeft = function () {
 
   console.log(photoGallary[randNum1]);
   // console.log(photoGallary[randNum1].photoName + " has " + photoGallary[randNum1].numOfVotes + " votes");
+
   randNum1 = calcRandom();
   while(randNum1 === randNum2) {
     randNum1 = calcRandom();
   }
+  //if clicked, add this below
+
   var path1 = photoGallary[randNum1].photoPath;
   imgElement1.src = path1;
   console.log(path1);
-
 }
 
   // imgElement1.parentNode.removeChild(selection1);
 
 var selectionRight = function () {
+  var highLight = document.getElementById("img2");
+  highLight.style.borderStyle = "solid";
+  highLight.style.borderWidth = "7px";
+  highLight.style.borderColor = "green";
+
   photoGallary[randNum2].numOfVotes += 1 ;
   var jsonVotes2 = JSON.stringify(photoGallary);//stringify
   localStorage.setItem('photoGallary',jsonVotes2);//setItem
@@ -114,6 +149,7 @@ var selectionRight = function () {
 }
 
 display1();
+
 display2();
 
 
@@ -124,10 +160,7 @@ var ctx = document.getElementById("myChart").getContext("2d");
 
 // function createChart() {
 
-// if (localStorage.chartData && localStorage.images){
-//   data = JSON.parse(localStorage.chartData);//either
-//   images = JSON.parse(localStorage.getItem('images'))//or works
-// } else {}
+
 var data = {
   labels:["lion","hearts","flowers","elephant","space", "hawks", "cuteElephant","snoopy","pikachu","simpsons","cat","clock"],
   datasets:[
@@ -151,9 +184,10 @@ var myBarChart = new Chart(ctx).Bar(data);
 
 
 imgElement1.addEventListener('click',selectionLeft);
+
 imgElement2.addEventListener('click',selectionRight);
 
-
-
+// addRefresh();
+document.getElementById("")
 
 
